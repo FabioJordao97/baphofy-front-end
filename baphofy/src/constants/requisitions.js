@@ -1,16 +1,17 @@
 import axios from 'axios'
-import { baseURL } from './baseUrl'
-import goToFeed from '../router/coordinator'
+import { baseURLUser } from './baseUrl'
+import {goToFeed} from '../router/coordinator'
 
 const token = localStorage.getItem('token')
 
 
 export const login = (body, history) => {
     axios
-    .post(`${baseURL}/login`, body)
+    .post(`${baseURLUser}/login`, body)
 
     .then((res) =>{
         localStorage.setItem("token", res.data.token)
+        window.alert('Logged In!')
         goToFeed(history)
     })
 
@@ -22,7 +23,7 @@ export const login = (body, history) => {
 
 export const signup = (body, history) => {
     axios
-    .post(`${baseURL}/signup`, body)
+    .post(`${baseURLUser}/signup`, body)
 
     .then((res)=>{
         localStorage.setItem('token', res.data.token)
@@ -35,7 +36,7 @@ export const signup = (body, history) => {
 
 export const createPost = (body, history) => {
     axios
-    .post(`${baseURL}/music`, body, {
+    .post(`${baseURLUser}/music`, body, {
         headers: {
             Authorization: token
         }

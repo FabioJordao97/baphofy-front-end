@@ -11,11 +11,11 @@ const Router = () => {
         <BrowserRouter>
         <Switch>
 
-            <Route exact path={['/login']}>
+            <Route exact path={'/login'}>
             <LoginPage/>
             </Route>
 
-            <Route exact path ={'/signup', '/'}>
+            <Route exact path ={['/signup', '/']}>
                 <Signup/>
             </Route>
 
