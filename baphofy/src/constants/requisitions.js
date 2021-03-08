@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseURLUser } from './baseUrl'
+import { baseURLPost, baseURLUser } from './baseUrl'
 import {goToFeed} from '../router/coordinator'
 
 const token = localStorage.getItem('token')
@@ -36,7 +36,7 @@ export const signup = (body, history) => {
 
 export const createPost = (body, history) => {
     axios
-    .post(`${baseURLUser}/music`, body, {
+    .post(`${baseURLPost}/music`, body, {
         headers: {
             Authorization: token
         }
