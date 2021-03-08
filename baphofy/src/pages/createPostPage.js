@@ -55,7 +55,7 @@ const CreatePost = () =>{
             />
              
             <button type="submit">
-                Create
+               Share It!
         </button>
         </form>
         </div>
