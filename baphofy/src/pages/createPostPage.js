@@ -1,7 +1,10 @@
 import { useHistory } from "react-router-dom"
+import Footer from "../components/footer/footer"
+import MenuCard from "../components/MenuCard/MenuCard"
 import { createPost } from "../constants/requisitions"
 import { useForm } from "../hooks/useForm"
 import { useProtectedPage } from "../hooks/useProtectedPage"
+import { LoginButtonDiv, LoginButton, LoginDiv } from '../styles/loginPage'
 
 const CreatePost = () =>{
     useProtectedPage()
@@ -18,46 +21,57 @@ const CreatePost = () =>{
         createPost(form, history)
         resetForm()
     }
-    console.log(form.file)
+   
     return (
         <div>
+            <MenuCard />
+            <LoginDiv>
+            
             <h2>Your darkest sound</h2>
         <h3>Share your music, mortal!</h3>
         <form onSubmit={handleSubmission}>
 
             <input
-            placeholder="Insert The Title"
+            placeholder="Tell me your creation's title"
             type="title"
             name="title"
             value={form.title}
             onChange={handleInput}
             />
+            <br />
             <input
-            placeholder="Insert The Album"
+            placeholder="Tell me your creation's album"
             type="album"
             name="album"
             value={form.album}
             onChange={handleInput}
             />
+            <br />
             <input
-            placeholder="Insert The Genre"
+            placeholder="Tell me your creation's genre"
             type="genre"
             name="genre"
             value={form.genre}
             onChange={handleInput}
             />
+            <br />
              <input
-            placeholder="Insert The File"
+            placeholder="Give me your creation's file"
             type="link"
             name="file"
             value={form.file}
             onChange={handleInput}
             />
-             
-            <button type="submit">
+             <br />
+             <LoginButtonDiv>
+            <LoginButton type="submit">
                Share It!
-        </button>
+               
+        </LoginButton>
+        </LoginButtonDiv>
         </form>
+        </LoginDiv>
+        <Footer />
         </div>
     )
     

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import Footer from '../components/footer/footer'
 import { signup } from '../constants/requisitions'
 import { useForm } from '../hooks/useForm'
 import { useUnprotectedPage } from '../hooks/useUnprotectedPage'
 import { goToLogin } from '../router/coordinator'
-import { LoginDiv } from '../styles/loginPage'
+import { LoginButtonDiv, LoginButton, LoginDiv } from '../styles/loginPage'
 
 const Signup = () =>{
 
@@ -27,48 +28,54 @@ const Signup = () =>{
         <form onSubmit={handleSubmission}>
 
             <input
-            placeholder="Insert Your Name"
+            placeholder="Tell me your name"
             type="name"
             name="name"
             value={form.name}
             onChange={handleInput}
             />
+            <br />
             <input
-            placeholder="Insert Your nickname"
+            placeholder="Tell me yournickname"
             type="nickname"
             name="nickname"
             value={form.nickname}
             onChange={handleInput}
             />
+            <br />
             <input
-            placeholder="Insert Your Profile Picture"
+            placeholder="Show me your profile picture"
             type="profilePicture"
             name="profilePicture"
             value={form.profilePicture}
             onChange={handleInput}
             />
+            <br />
             <input
-                placeholder="Insert Your Email"
+                placeholder="Tell me your email"
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleInput} />
-
+            <br />
             <input
-                placeholder="Insert Your Password"
+                placeholder="Create a password"
                 type="password"
                 name="password"
                 value={form.password}
                 onChange={handleInput} />
-
-            <button type="submit">
-                Create
-        </button>
+            <br />
+            <LoginButtonDiv>
+            <LoginButton type="submit">
+                Join!
+        </LoginButton>
+        </LoginButtonDiv>
         </form>
 
 
         <p>Already joined the realm of darkness?</p>
-        <button onClick={() => goToLogin(history)}>login</button>
+        <LoginButton onClick={() => goToLogin(history)}>Show Yourself!</LoginButton>
+        <Footer />
     </LoginDiv>
 )
 }
