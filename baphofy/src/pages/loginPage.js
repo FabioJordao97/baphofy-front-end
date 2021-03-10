@@ -4,7 +4,8 @@ import { useUnprotectedPage } from '../hooks/useUnprotectedPage'
 import { useForm } from '../hooks/useForm'
 import { login } from '../constants/requisitions'
 import { goToSignup } from '../router/coordinator'
-import { LoginDiv } from '../styles/loginPage'
+import { LoginButton, LoginButtonDiv, LoginDiv } from '../styles/loginPage'
+import Footer from '../components/footer/footer'
 
 const LoginPage = () => {
 
@@ -28,27 +29,33 @@ const LoginPage = () => {
             <h3>Present yourself, mortal!</h3>
             <form onSubmit={handleSubmission}>
                 <input
-                    placeholder="Insert Your Email"
+                    placeholder="Tell me your email"
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleInput} />
 
+                    <br />
+
                 <input
-                    placeholder="Insert Your Password"
+                    placeholder="Tell me your password"
                     type="password"
                     name="password"
                     value={form.password}
                     onChange={handleInput} />
 
-                <button type="submit">
+                    <br />
+                <LoginButtonDiv>
+                <LoginButton type="submit">
                     Login
-            </button>
+            </LoginButton>
+            </LoginButtonDiv>
             </form>
 
 
-            <p>Still haven't joined the realm of darkness? Join now</p>
-            <button onClick={() => goToSignup(history)}>SignUp</button>
+            <p>Still haven't joined the realm of darkness?</p>
+            <LoginButton onClick={() => goToSignup(history)}>Join Now</LoginButton>
+            <Footer />
         </LoginDiv>
     )
 }
